@@ -16,13 +16,12 @@ def usuario_escolhe_jogada(n, m):
         valid_play = False
         while not valid_play:
                 print("")
-                user_play = int(input("Quantas peças você vai tirar? "))
+                user_play = int(input("\nQuantas peças você vai tirar? "))
 
     #Jogada inválida:
                 if(user_play < 1 or user_play > m):
-                        print("Oops! Jogada inválida! Tente de novo.")
-                        print("")
-                        user_play = int(input("Quantas peças você vai tirar? "))
+                        print("\nOops! Jogada inválida! Tente de novo.")
+                        user_play = int(input("\nQuantas peças você vai tirar? "))
                 else:
                         valid_play = True
                         
@@ -31,51 +30,47 @@ def usuario_escolhe_jogada(n, m):
 
 
 def partida():
-        n = int(input("Quantas peças? " ))
-        m = int(input("Limite de peças por jogada? " ))
+        n = int(input("\nQuantas peças você deseja utilizar no jogo? " ))
+        m = int(input("\nQual será o limite de peças por jogada? " ))
         pc_turn = False
         
         #Se n e m forem inválidos
         while m > n or m == 0 or n == 0:
-                print("Valores inválidos.")
-                n = int(input("Quantas peças? " ))
-                m = int(input("Limite de peças por jogada? " ))
+                print("\nValores inválidos.")
+                n = int(input("\nQuantas peças deseja utilizar no jogo? " ))
+                m = int(input("\nQual será o limite de peças por jogada? " ))
                 
         #Se n e m foram válidos
         
         if n%(m+1) == 0:
                 print("")
-                print("Você começa!")
+                print("\nVocê começa!")
         else:
                 print("")
-                print("O computador começa!")
+                print("\nO computador começa!")
                 pc_turn = True
                 
         while n > 0:
                 if pc_turn:
                         pc_play = computador_escolhe_jogada(n, m)
                         n = n - pc_play
-                        print("")
-                        print("O computador retirou", pc_play, "peças.")
+                        print("\nO computador retirou", pc_play, "peças.")
                         
                         pc_turn = False
                 else:
                         user_play = usuario_escolhe_jogada(n, m)
                         n = n - user_play
-                        print("")
-                        print("Você retirou", user_play, "peças.")
+                        print("\nVocê retirou", user_play, "peças.")
                         
                         pc_turn = True
                         
                 if n == 1:
-                        print("Agora resta apenas uma peça no tabuleiro.")
-                        print("")
+                        print("\nAgora resta apenas uma peça no tabuleiro.")
                 else:
                         if n != 0:
-                                print("Agora restam", n, "peças no tabuleiro.")
-                                print("")
+                                print("\nAgora restam", n, "peças no tabuleiro.")
                                 
-        print("Fim do jogo! O computador ganhou!")      
+        print("\nFim do jogo! O computador ganhou!")      
 
 
                                
@@ -92,26 +87,24 @@ def campeonato():
     print("**** Rodada 3 ****")
     print("")
     partida()
-    print("Final do campeonato!")
-    print("Placar: Você 0 X 3 Computador")
+    print("\nFim do campeonato!")
+    print("\nPlacar: Você 0 X 3 Computador")
 #anunciar o vencedor do campeonato 
 
 
 #Menu de início    
-print("Bem-vindo ao jogo do NIM! Escolha:")
-print("")
-print("1 - para jogar uma partida isolada")
-tipo = input("2 - para jogar um campeonato ")
+print("Bem-vindo ao jogo do NIM! Escolha:\n")
+print("1 - para jogar uma partida isolada\n")
+print("2 - para jogar um campeonato \n")
+tipo = input("Sua escolha: ")
 
 #Tipo do jogo
 if tipo == "1":
-    print("")
-    print("Você escolheu uma partida isolada!") 
+    print("\nVocê escolheu uma partida isolada!") 
     partida()
     
 if tipo == "2":
-    print("")
-    print("Você escolheu um campeonato!")
+    print("\nVocê escolheu um campeonato!")
     campeonato()
 
 else:
@@ -119,13 +112,12 @@ else:
         print("")
         print("Escolha 1 ou 2.")
         print("1 - para jogar uma partida isolada")
-        tipo = input("2 - para jogar um campeonato ")
+        print("2 - para jogar um campeonato ")
+        tipo = input("Sua escolha: ")
         if tipo == "1":
-            print("")
-            print("Você escolheu uma partida!")
+            print("\nVocê escolheu uma partida!")
             partida()
             
         if tipo == "2":
-            print("")
-            print("Você escolheu um campeonato!")
+            print("\nVocê escolheu um campeonato!")
             campeonato()
