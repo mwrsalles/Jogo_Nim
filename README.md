@@ -1,4 +1,4 @@
-# Jogo_Nim
+# Nim_Game
 
 PT-BR:
 
